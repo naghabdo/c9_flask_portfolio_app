@@ -32,10 +32,10 @@ def add_numbers_post():
                 T = request.form['text']
                 theword = TextBlob(T)
                 while T !=  ' ': 
-                print(f'{theword.detect_language()}')
-                print(f'{theword.translate(to="ar")}')  
-                T = request.form['text']
-                theword = TextBlob(T)
+                    print(f'{theword.detect_language()}')
+                    print(f'{theword.translate(to="ar")}')  
+                    T = request.form['text']
+                    theword = TextBlob(T)
   	      	return render_template('add_numbers.html', result=str(total))
   	      except ValueError:
   	      	return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
