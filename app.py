@@ -3,7 +3,7 @@ import datetime
 import pytz # timezone 
 import requests
 import os
-from textblob import TextBlob
+
 
 
 app = Flask(__name__)
@@ -26,14 +26,11 @@ def add_numbers_post():
 	  	return render_template('add_numbers.html')
 	  elif request.method == 'POST':
   	      print(request.form['text'].split())
-  	     
+  	      total = 0
   	      try:
-
-                T = request.form['text']
-                theword = TextBlob(T)
-                if T !=  ' ': 
-                    b = theword.translate(to="ar")
-  	      	return render_template('add_numbers.html', result=b)
+                for str_num in request.form['text'].split():
+  	                total += int(str_num)
+  	        return render_template('add_numbers.html', result=str(total))
   	      except ValueError:
   	      	return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
 
