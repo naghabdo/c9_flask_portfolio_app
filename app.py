@@ -3,7 +3,7 @@ import datetime
 import pytz # timezone 
 import requests
 import os
-
+from textblob import TextBlob
 
 
 app = Flask(__name__)
@@ -28,7 +28,7 @@ def add_numbers_post():
   	      print(request.form['text'].split())
   	     
   	      try:
-  	      	from textblob import TextBlob
+
                 T = request.form['text']
                 theword = TextBlob(T)
                 if T !=  ' ': 
