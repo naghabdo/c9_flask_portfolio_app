@@ -31,10 +31,8 @@ def add_numbers_post():
   	      	from textblob import TextBlob
                 T = request.form['text']
                 theword = TextBlob(T)
-                while T !=  ' ': 
-                    b = print(f'{theword.translate(to="ar")}')  
-                    T = request.form['text']
-                    theword = TextBlob(T)
+                if T !=  ' ': 
+                    b = theword.translate(to="ar")
   	      	return render_template('add_numbers.html', result=str(b))
   	      except ValueError:
   	      	return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
